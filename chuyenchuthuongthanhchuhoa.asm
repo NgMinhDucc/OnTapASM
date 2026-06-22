@@ -8,16 +8,25 @@ string db 100 dup(?)
 main proc
     mov ax, @data
     mov ds, ax
-    mov es, ax
-    lea di, string 
     
+    mov es, ax
+    lea di, string
     nhap:
     mov ah, 1
     int 21h
     
     cmp al, 13
     je inra
+    cmp al, 'a'
+    jb luu
+    cmp al, 'z'
+    ja luu
     
+    sub al, 32
+    stosb
+    jmp nhap
+    
+    luu:
     stosb
     jmp nhap
     
@@ -26,6 +35,7 @@ main proc
     lea dx, crlf
     mov ah, 9
     int 21h
+    
     lea dx, string
     mov ah, 9
     int 21h

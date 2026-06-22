@@ -5,7 +5,9 @@ tong dw 0
 x dw 0
 y dw ?
 muoi dw 10
+crlf db 13, 10,'$'
 
+.code
 main proc
     mov ax, @data
     mov ds, ax
@@ -36,6 +38,10 @@ main proc
     jmp nhap
     
     khaibao:
+    lea dx, crlf
+    mov ah, 9
+    int 21h
+    
     mov ax, tong
     mov cx, 0
     
@@ -51,7 +57,7 @@ main proc
     
     inra:
     pop dx
-    add dl, 48
+    add dx, 48
     mov ah, 2
     int 21h
     loop inra
