@@ -12,23 +12,23 @@ main proc
     lea di, string 
     
     nhap:
-    mov ah, 1
-    int 21h
-    
-    cmp al, 13
-    je inra
-    
-    stosb
-    jmp nhap
+        mov ah, 1
+        int 21h
+        
+        cmp al, 13
+        je inra
+        
+        stosb
+        jmp nhap
     
     inra:
-    mov byte ptr [di], '$'
-    lea dx, crlf
-    mov ah, 9
-    int 21h
-    lea dx, string
-    mov ah, 9
-    int 21h
+        mov byte ptr [di], '$'
+        lea dx, crlf
+        mov ah, 9
+        int 21h
+        lea dx, string
+        mov ah, 9
+        int 21h
     
     mov ah, 4ch
     int 21h

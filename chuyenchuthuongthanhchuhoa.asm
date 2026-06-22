@@ -12,33 +12,33 @@ main proc
     mov es, ax
     lea di, string
     nhap:
-    mov ah, 1
-    int 21h
-    
-    cmp al, 13
-    je inra
-    cmp al, 'a'
-    jb luu
-    cmp al, 'z'
-    ja luu
-    
-    sub al, 32
-    stosb
-    jmp nhap
+        mov ah, 1
+        int 21h
+        
+        cmp al, 13
+        je inra
+        cmp al, 'a'
+        jb luu
+        cmp al, 'z'
+        ja luu
+        
+        sub al, 32
+        stosb
+        jmp nhap
     
     luu:
-    stosb
-    jmp nhap
+        stosb
+        jmp nhap
     
     inra:
-    mov byte ptr [di], '$'
-    lea dx, crlf
-    mov ah, 9
-    int 21h
-    
-    lea dx, string
-    mov ah, 9
-    int 21h
+        mov byte ptr [di], '$'
+        lea dx, crlf
+        mov ah, 9
+        int 21h
+        
+        lea dx, string
+        mov ah, 9
+        int 21h
     
     mov ah, 4ch
     int 21h

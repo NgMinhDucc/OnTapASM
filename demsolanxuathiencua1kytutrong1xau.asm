@@ -25,46 +25,46 @@ main proc
     
     ; nhap xau
     nhap:
-    mov ah, 1
-    int 21h
-    
-    cmp al, 13
-    je khoitao
-    cmp al, char
-    je count
-    
-    stosb
-    jmp nhap
+        mov ah, 1
+        int 21h
+        
+        cmp al, 13
+        je khoitao
+        cmp al, char
+        je count
+        
+        stosb
+        jmp nhap
     
     count:
-    inc cnt
-    stosb
-    jmp nhap
+        inc cnt
+        stosb
+        jmp nhap
     
     khoitao:
-    lea dx, crlf
-    mov ah, 9
-    int 21h
-    
-    mov ax, cnt
-    mov cx, 0
+        lea dx, crlf
+        mov ah, 9
+        int 21h
+        
+        mov ax, cnt
+        mov cx, 0
     
     chia:
-    mov dx, 0
-    div muoi
-    push dx
-    inc cx
-    
-    cmp ax, 0
-    je inra
-    jmp chia
+        mov dx, 0
+        div muoi
+        push dx
+        inc cx
+        
+        cmp ax, 0
+        je inra
+        jmp chia
     
     inra:
-    pop dx
-    add dx, 48
-    mov ah, 2
-    int 21h
-    loop inra
+        pop dx
+        add dx, 48
+        mov ah, 2
+        int 21h
+        loop inra
     
     mov ah, 4ch
     int 21h

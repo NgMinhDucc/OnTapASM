@@ -13,54 +13,54 @@ main proc
     mov ds, ax
     
     nhap:
-    mov ah, 1
-    int 21h
-    
-    cmp al, '#'
-    je khaibao
-    cmp al, 13
-    je tinhtong
-    
-    mov ah, 0
-    sub al, 48
-    
-    mov y, ax
-    mov ax, x
-    mul muoi
-    add ax, y
-    mov x, ax
-    jmp nhap
+        mov ah, 1
+        int 21h
+        
+        cmp al, '#'
+        je khaibao
+        cmp al, 13
+        je tinhtong
+        
+        mov ah, 0
+        sub al, 48
+        
+        mov y, ax
+        mov ax, x
+        mul muoi
+        add ax, y
+        mov x, ax
+        jmp nhap
     
     tinhtong:
-    mov bx, x
-    add tong, bx
-    mov x, 0
-    jmp nhap
-    
-    khaibao:
-    lea dx, crlf
-    mov ah, 9
-    int 21h
-    
-    mov ax, tong
-    mov cx, 0
+        mov bx, x
+        add tong, bx
+        mov x, 0
+        jmp nhap
+        
+        khaibao:
+        lea dx, crlf
+        mov ah, 9
+        int 21h
+        
+        mov ax, tong
+        mov cx, 0
     
     chia:
-    mov dx, 0
-    div muoi
-    push dx
-    inc cx
-    
-    cmp ax, 0
-    je inra
-    jmp chia
+        mov dx, 0
+        div muoi
+        push dx
+        inc cx
+        
+        cmp ax, 0
+        je inra
+        jmp chia
     
     inra:
-    pop dx
-    add dx, 48
-    mov ah, 2
-    int 21h
-    loop inra
+        pop dx
+        add dx, 48
+        mov ah, 2
+        int 21h
+        loop inra
     
     mov ah, 4ch
     int 21h
