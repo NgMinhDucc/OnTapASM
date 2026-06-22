@@ -1,0 +1,21 @@
+< THE SYMBOL TABLE >  tinhtongnsotunhien.exe_  --  emu8086 assembler version: 4.08 
+===================================================================================================
+Name                     	Offset    	Size      	Type      	Segment   
+===================================================================================================
+STACK                    	00000     	-5        	SEGMENT   	(ITSELF)  
+DATA                     	00010     	-5        	SEGMENT   	(ITSELF)  
+TONG                     	00000     	2         	VAR       	data      
+X                        	00002     	2         	VAR       	data      
+Y                        	00004     	2         	VAR       	data      
+MUOI                     	00006     	2         	VAR       	data      
+CRLF                     	00008     	1         	VAR       	data      
+MAIN                     	0000B     	-1        	NEAR      	data      
+NHAP                     	00010     	-1        	LABEL     	data      
+TINHTONG                 	00033     	-1        	LABEL     	data      
+KHAIBAO                  	00043     	-1        	LABEL     	data      
+CHIA                     	00049     	-1        	LABEL     	data      
+INRA                     	00059     	-1        	LABEL     	data      
+===================================================================================================
+[ 22/06/2026  --  13:07:23 ] 
+< END >
+ 

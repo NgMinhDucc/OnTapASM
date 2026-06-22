@@ -1,0 +1,67 @@
+.model small
+.stack 100h
+.data
+tong dw 0
+x dw 0
+y dw ?
+muoi dw 10
+crlf db 13, 10, '$'
+
+main proc
+mov ax, @data
+mov ds, ax
+
+nhap:
+mov ah, 1
+int 21h
+
+cmp al, '#'
+je khaibao
+cmp al, 13
+je tinhtong
+
+mov ah, 0
+sub al, 48
+
+mov y, ax
+mov ax, x
+mul muoi
+add ax, y
+mov x, ax
+jmp nhap
+
+tinhtong:
+mov bx, x
+add tong, bx
+mov x, 0
+jmp nhap
+
+khaibao:
+mov ax, tong
+mov cx, 0
+
+chia:
+mov dx, 0
+div muoi
+push dx
+inc cx
+
+cmp ax, 0
+je inra
+jmp chia
+
+inra:
+pop dx
+add dl, 48
+mov ah, 2
+int 21h
+loop inra
+
+mov ah, 4ch
+int 21h
+main endp
+end main
+
+
+
+; [SOURCE]: D:\asm\OnTap\tinhtongnsotunhien.asm
