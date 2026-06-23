@@ -37,7 +37,7 @@ main proc
         mov x, 0
         jmp nhap
         
-        khaibao:
+    khaibao:
         lea dx, crlf
         mov ah, 9
         int 21h
